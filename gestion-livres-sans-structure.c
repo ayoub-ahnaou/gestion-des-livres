@@ -10,6 +10,7 @@ float prix[MAX_LIVRES];
 int counter = 0;
 
 void ajouterLivre(){
+    printf("--ajout d'un livre--");
     printf("donner le titre de livre: "); scanf(" %[^\n]s", titres[counter]);
     printf("donner l'autheur de livre: "); scanf(" %[^\n]s", auteurs[counter]);
     printf("donner la quantite de livre: "); scanf("%d", &quantite[counter]);
@@ -32,6 +33,7 @@ void afficherLivre(){
 }
 
 void rechercherLivre(){
+    printf("--recherche d'un livre--");
     char titre[25];
     printf("entrer le nom de livre voulez vous rechercher: ");
     scanf(" %[^\n]s", titre);
@@ -46,7 +48,7 @@ void rechercherLivre(){
 }
 
 void updateLivre(){
-    printf("augmente la quantite d'un livre..\n");
+    printf("--augmente la quantite d'un livre--\n");
     char titre[25];
     int qty, position = -1;
 
@@ -70,7 +72,7 @@ void updateLivre(){
 }
 
 void supprimerLivre(){
-    printf("la supprission d'un livre..\n");
+    printf("--supprission d'un livre--\n");
     char titre[25];
     int position = -1;
 
@@ -100,8 +102,13 @@ void supprimerLivre(){
 }
 
 void totalLivre(){
-    printf("total des livres au stock..\n");
+    printf("--informations sur le stock--\n");
     printf("le total est %d livre(s)\n", counter);
+    int total = 0;
+    for(int i=0; i<counter; i++){
+        total = total + quantite[i];
+    }
+    printf("le total des quantites de livre %d \n", total);
 }
 
 int main(){
